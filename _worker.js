@@ -55,8 +55,7 @@ async function handleFileOperation(KV, fileName, url) {
 }
 
 async function fileExists(KV, filename) {
-    const value = await KV.get(filename);
-    if (value === null) throw new Error('File not found');
+    return await KV.get(filename) !== null;
 }
 
 function base64Decode(str) {
